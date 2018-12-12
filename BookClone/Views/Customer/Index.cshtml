@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BookClone.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table id="customers" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Membership Type</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            @foreach (var customer in Model)
+            {
+        <tr>
+            <td>
+                @Html.ActionLink(customer.Name, "Deatils", "Customer", new { id = 1 },null)
+            </td>
+            <td>
+                @customer.MembershipTypeId
+            </td>
+        </tr>
+            }
+        
+    </tbody>
+</table>
